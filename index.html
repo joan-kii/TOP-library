@@ -1,0 +1,63 @@
+<!DOCTYPE html> 
+<html lang="es">
+
+    <head>
+        <meta http-equiv="content-language" content="es-es">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Mali&display=swap" rel="stylesheet"> 
+        <title>The Odin Project Library</title>
+    </head>
+
+    <body>
+        <div class="header">
+            <h1 class="title">{Librería Odin Project}</h1>
+            <button id="newBookButton" class="newBookButton">Nuevo Libro</button>
+        </div>
+        <h2 class="subtitle">{Libros}</h2>
+
+        <div id="books" class="books"></div>
+
+        <div id="modal" class="popModal">
+
+            <form class="formNewBook">
+
+                <div class="headerform">
+                    <h2 class="formTitle">{Introduce los datos del nuevo libro}</h2>
+                    <span id ="closePop" class="closePop">&times;</span>
+                </div>
+
+                <div class="bookInput">
+                    <label for="bookTitle" class="label">Título</label>
+                    <input type="text" id="bookTitle" class="form" placeholder="Título" required>
+                </div>
+                
+                <div class="bookInput">
+                    <label for="authorName" class="label">Autor/a</label>
+                    <input type="text" id="authorName" class="form" placeholder="Nombre" required>
+                </div>
+                
+                <div class="bookInput">
+                    <label for="numPages" class="label">Páginas</label>
+                    <input type="text" id="numPages" class="form" placeholder="p. ej. 200" min="10" required>
+                </div>
+                
+                <div class="bookInput">
+                    <label for="checkRead" class="label">Leído</label>
+                    <input type="checkbox" id="checkRead" class="form">
+                </div>
+                
+                <div class="bookInput">
+                    <button id="cancel" class="cancelButton">Cancelar</button>
+                    <button id="submitBook" class="submitForm">Añadir Libro</button>
+                </div>
+
+            </form>
+
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+
+</html>     

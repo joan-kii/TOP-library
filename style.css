@@ -1,0 +1,14 @@
+body {
+    font-family: 'Mali', Arial, Helvetica, sans-serif;
+    background-image: linear-gradient(to bottom right, #E0FBFC, #98C1D9);
+}
+
+h1 {
+    text-align: center;
+    padding: 1.5em;
+    color: white;
+}
+
+.header {
+    background-image: linear-gradient(to bottom right, #3D5A80, #293241);
+}
