@@ -12,10 +12,10 @@
 
     <body>
         <div class="header">
-            <h1 class="title">{Librería Odin Project}</h1>
+            <h1 class="title"><span>{</span>Librería Odin Project<span>}</span></h1>
             <button id="newBookButton" class="newBookButton">Nuevo Libro</button>
         </div>
-        <h2 class="subtitle">{Libros}</h2>
+        <h2 class="subtitle"><span>{</span>Librería<span>}</span></h2>
 
         <div id="books" class="books"></div>
 
@@ -23,32 +23,34 @@
 
             <form class="formNewBook">
 
-                <div class="headerform">
-                    <h2 class="formTitle">{Introduce los datos del nuevo libro}</h2>
-                    <span id ="closePop" class="closePop">&times;</span>
+                <div class="headerForm">
+                    <h2 class="formTitle"><span>{</span>Introduce los datos del nuevo libro<span>}</span></h2>
+                    <span id ="closePop" class="closePop"></span>
                 </div>
 
-                <div class="bookInput">
-                    <label for="bookTitle" class="label">Título</label>
-                    <input type="text" id="bookTitle" class="form" placeholder="Título" required>
+                <div class="inputsForm">
+                    <div class="bookInput">
+                        <label for="bookTitle" class="label">Título</label>
+                        <input type="text" id="bookTitle" class="form" placeholder="Título" required>
+                    </div>
+                    
+                    <div class="bookInput">
+                        <label for="authorName" class="label">Autor/a</label>
+                        <input type="text" id="authorName" class="form" placeholder="Nombre" required>
+                    </div>
+                    
+                    <div class="bookInput">
+                        <label for="numPages" class="label">Páginas</label>
+                        <input type="text" id="numPages" class="form" placeholder="p. ej. 200" min="10" required>
+                    </div>
+                    
+                    <div class="bookInputCheckbox">
+                        <label for="checkRead" class="label">Leído</label>
+                        <input type="checkbox" id="checkRead" class="form">
+                    </div>
                 </div>
-                
-                <div class="bookInput">
-                    <label for="authorName" class="label">Autor/a</label>
-                    <input type="text" id="authorName" class="form" placeholder="Nombre" required>
-                </div>
-                
-                <div class="bookInput">
-                    <label for="numPages" class="label">Páginas</label>
-                    <input type="text" id="numPages" class="form" placeholder="p. ej. 200" min="10" required>
-                </div>
-                
-                <div class="bookInput">
-                    <label for="checkRead" class="label">Leído</label>
-                    <input type="checkbox" id="checkRead" class="form">
-                </div>
-                
-                <div class="bookInput">
+
+                <div class="bookInputButtons">
                     <button id="cancel" class="cancelButton">Cancelar</button>
                     <button id="submitBook" class="submitForm">Añadir Libro</button>
                 </div>

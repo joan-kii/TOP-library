@@ -1,14 +1,185 @@
-body {
+html, body {
     font-family: 'Mali', Arial, Helvetica, sans-serif;
-    background-image: linear-gradient(to bottom right, #E0FBFC, #98C1D9);
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    color: #293241;
+    cursor: pointer;
+    font-family: 'Mali', Arial, Helvetica, sans-serif;
+    font-size: medium;
+    font-weight: 500;
+    background-color: #98C1D9;
+    border-radius: 10px;
+    border-width: 3px;
+    border-color: #E0FBFC;
+    box-shadow: 0  17px 10px -8px rgba(0, 0, 0, 1);
+    transition: all ease-in-out 300ms;
+}
+
+button:hover {
+    background-color: #E0FBFC;
+    border-color: #98C1D9;
+    color: #EE6C4D;
+    font-weight: bolder;
+    box-shadow: 0  37px 20px -16px rgba(0, 0, 0, 1)
+}
+
+button:focus {
+    display: none;
+}
+
+span {
+    color: #EE6C4D;
 }
 
 h1 {
     text-align: center;
-    padding: 1.5em;
+    padding: 20px;
+    margin-top: 15px;
     color: white;
 }
 
+p {
+    font-size: large;
+}
+
 .header {
-    background-image: linear-gradient(to bottom right, #3D5A80, #293241);
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(to bottom right, #98C1D9, #293241);
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 0;
+    align-items: center;
+    border-bottom: 5px solid #EE6C4D;
+}
+
+.newBookButton {
+    margin-bottom: 40px;
+    padding: 10px;
+}
+
+.subtitle {
+    order: 2;position: absolute;
+    top: 200px;
+    margin-top: 40px;
+    margin-left: 60px;
+}
+
+.books {
+    order: 3;
+    position: relative;
+    top: 250px;
+    margin-top: 30px;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.card {
+    flex: 20px 0 33.333333%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    width: 250px;
+    padding: 20px;
+    margin: 20px;
+    border: 5px solid #EE6C4D;
+    border-radius: 10px;
+    background-image: linear-gradient(to bottom right, #98C1D9, #293241);
+    box-shadow: 17px  17px 10px -8px rgba(0, 0, 0, .4);
+}
+
+.checkField {
+    margin: 15px;
+    padding: 10px;
+}
+
+.deleteButton {
+    margin: 15px;
+    padding: 10px;
+}
+
+.popModal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding: 250px 33%;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.formNewBook {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    width: 33%;
+    padding: 50px;
+    border: 5px solid #EE6C4D;
+    border-radius: 10px;
+    background-image: linear-gradient(to bottom right, #98C1D9, #293241);
+    box-shadow: 17px  17px 10px -8px rgba(0, 0, 0, .4);
+}
+
+.headerForm {
+    display: flex;
+    justify-content: center;
+}
+
+.inputsForm {
+    display: flex;
+    flex-direction: column;
+    max-width: 250px;
+}
+
+.bookInput {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.input[type="text"] {
+    text-indent: 2px;
+}
+
+.bookInputCheckbox {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.bookInputButtons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+input[type="checkbox"] {
+    width: 19px;
+    height: 19px;
+    margin-left: 21px;
+}
+ 
+.cancelButton {
+    margin: 15px;
+    padding: 10px;
+}
+
+.submitForm {
+    margin: 15px;
+    padding: 10px;
 }

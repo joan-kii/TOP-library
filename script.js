@@ -12,6 +12,8 @@ function addBookToLibrary(event) {
     let newBook = new Book(bookTitle.value, authorName.value,
         numPages.value, checkRead.checked);
     myLibrary.push(newBook);
+    modal.style.display = 'none';
+    container.innerText = "";
     render(myLibrary);
     clearForm();
 
@@ -31,7 +33,7 @@ function render(myLibrary) {
         card.classList.add('card');
         card.setAttribute('id', `${i}`);
 
-        let title = document.createElement('h3');
+        let title = document.createElement('h2');
         title.innerText = myLibrary[i].bookTitle;
 
         let author = document.createElement('p');
@@ -106,7 +108,7 @@ const cancelForm = document.querySelector('#cancel');
 const submitBook = document.querySelector('#submitBook');
 const closeForm = document.querySelector('#closePop')
 
-const newBook = document.querySelector('#newBookButton');
+const newBookButton = document.querySelector('#newBookButton');
 const container = document.querySelector('#books');
 
 
@@ -117,5 +119,8 @@ cancelForm.addEventListener("click", function(){
 closeForm.addEventListener("click", function() {
     modal.style.display = 'none';
 });
+newBookButton.addEventListener("click", function() {
+    modal.style.display = 'block';
+})
 
 render(myLibrary);
