@@ -12,10 +12,11 @@ function addBookToLibrary(event) {
     let newBook = new Book(bookTitle.value, authorName.value,
         numPages.value, checkRead.checked);
     myLibrary.push(newBook);
+    firebase.database().ref().set(myLibrary);
     modal.style.display = 'none';
     container.innerText = "";
-    render(myLibrary);
     clearForm();
+    render(myLibrary);
 
 };
 
@@ -59,17 +60,18 @@ function render(myLibrary) {
 
             if (myLibrary[cardIndex].checkRead === true) {
                 myLibrary[cardIndex].checkRead = false;
-                myLibrary[cardIndex].check = 'Pendiente';
+                check.innerText = 'Pendiente';
 
             } else if (myLibrary[cardIndex].checkRead === false) {
                 myLibrary[cardIndex].checkRead = true;
-                myLibrary[cardIndex].check = 'Leído'
+                check.innerText = 'Leído';
             };
-            check.innerText = myLibrary[cardIndex].check;
+            firebase.database().ref().set(myLibrary);
         });
 
         deleteCard.addEventListener('click', function() {
             myLibrary.splice(cardIndex, 1);
+            firebase.database().ref().set(myLibrary);
             container.innerText = "";
             render(myLibrary);
         });
@@ -78,7 +80,8 @@ function render(myLibrary) {
 
 // Inputs
 
-let myLibrary = [
+let myLibrary = [];
+let initialLibrary = [
     {
         "bookTitle" : "El código Da Vinci",
         "authorName" : "Dan Brown",
@@ -111,7 +114,6 @@ const closeForm = document.querySelector('#closePop')
 const newBookButton = document.querySelector('#newBookButton');
 const container = document.querySelector('#books');
 
-
 submitBook.addEventListener("click", addBookToLibrary);
 cancelForm.addEventListener("click", function(){
     modal.style.display = 'none';
@@ -123,4 +125,30 @@ newBookButton.addEventListener("click", function() {
     modal.style.display = 'block';
 })
 
-render(myLibrary);
+// Firebase
+
+// Your web app's Firebase configuration
+let firebaseConfig = {
+    apiKey: "AIzaSyD6U2UM95cpyH0bkrTzcrr_XtatZu-kjsc",
+    authDomain: "top-library-2059c.firebaseapp.com",
+    databaseURL: "https://top-library-2059c.firebaseio.com",
+    projectId: "top-library-2059c",
+    storageBucket: "top-library-2059c.appspot.com",
+    messagingSenderId: "180267997472",
+    appId: "1:180267997472:web:6d0ca86b83d241aba59f45"
+  };
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+const dbRefObject = firebase.database().ref();
+dbRefObject.on('value', function(snap) {
+
+    if (snap.exists() == false) {
+        firebase.database().ref().set(initialLibrary);
+        myLibrary = initialLibrary;
+    } else {
+        myLibrary = snap.val();
+    };
+    render(myLibrary);
+});
