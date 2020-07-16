@@ -66,6 +66,7 @@ function render(myLibrary) {
                 myLibrary[cardIndex].checkRead = true;
                 check.innerText = 'Leído';
             };
+            container.innerText = "";
             firebase.database().ref().set(myLibrary);
         });
 
