@@ -72,9 +72,8 @@ function render(myLibrary) {
 
         deleteCard.addEventListener('click', function() {
             myLibrary.splice(cardIndex, 1);
-            firebase.database().ref().set(myLibrary);
             container.innerText = "";
-            render(myLibrary);
+            firebase.database().ref().set(myLibrary);
         });
     };
 };
