@@ -118,9 +118,7 @@ submitBook.addEventListener("click", addBookToLibrary);
 cancelForm.addEventListener("click", function(){
     modal.style.display = 'none';
 });
-closeForm.addEventListener("click", function() {
-    modal.style.display = 'none';
-});
+
 newBookButton.addEventListener("click", function() {
     modal.style.display = 'block';
 })
@@ -145,10 +143,13 @@ const dbRefObject = firebase.database().ref();
 dbRefObject.on('value', function(snap) {
 
     if (snap.exists() == false) {
+        console.log(snap.exists())
         firebase.database().ref().set(initialLibrary);
         myLibrary = initialLibrary;
     } else {
         myLibrary = snap.val();
+        console.log(snap.val())
     };
+    container.innerText = "";
     render(myLibrary);
 });
