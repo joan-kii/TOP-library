@@ -1,22 +1,28 @@
 // Functions
 
-function Book(bookTitle, authorName, numPages, checkRead) {
-    this.bookTitle = bookTitle;
-    this.authorName = authorName;
-    this.numPages = numPages;
-    this.checkRead = checkRead;
+class Book{
+    constructor (bookTitle, authorName, numPages, checkRead) {
+        this.bookTitle = bookTitle;
+        this.authorName = authorName;
+        this.numPages = numPages;
+        this.checkRead = checkRead;
+    };
 };
 
 function addBookToLibrary(event) {
     event.preventDefault()
-    let newBook = new Book(bookTitle.value, authorName.value,
-        numPages.value, checkRead.checked);
-    myLibrary.push(newBook);
-    firebase.database().ref().set(myLibrary);
-    modal.style.display = 'none';
-    container.innerText = "";
-    clearForm();
-    render(myLibrary);
+    if (bookTitle.value == '' || authorName.value == '' || numPages.value == '') {
+        alert('Por favor, introduce Título , Autor Y Número de Páginas antes de continuar')
+    } else {
+        let newBook = new Book(bookTitle.value, authorName.value,
+            numPages.value, checkRead.checked);
+        myLibrary.push(newBook);
+        firebase.database().ref().set(myLibrary);
+        modal.style.display = 'none';
+        container.innerText = "";
+        clearForm();
+        render(myLibrary);
+    };
 
 };
 
@@ -121,7 +127,7 @@ cancelForm.addEventListener("click", function(){
 
 newBookButton.addEventListener("click", function() {
     modal.style.display = 'block';
-})
+});
 
 // Firebase
 
