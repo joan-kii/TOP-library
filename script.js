@@ -10,9 +10,13 @@ class Book{
 };
 
 function addBookToLibrary(event) {
+    const titleInput = document.getElementById('bookTitle');
+    const authorInput = document.getElementById('authorName');
+    const pagesInput = document.getElementById('numPages');     
     event.preventDefault()
-    if (bookTitle.value == '' || authorName.value == '' || numPages.value == '') {
-        alert('Por favor, introduce Título , Autor Y Número de Páginas antes de continuar')
+    /* if (bookTitle.value == '' || authorName.value == '' || numPages.value == '') {
+        alert('Por favor, introduce Título , Autor Y Número de Páginas antes de continuar'); */
+    // SEGUIR AQUÍ
     } else {
         let newBook = new Book(bookTitle.value, authorName.value,
             numPages.value, checkRead.checked);

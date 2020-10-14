@@ -66,7 +66,8 @@ p {
 }
 
 .subtitle {
-    order: 2;position: absolute;
+    order: 2;
+    position: absolute;
     top: 200px;
     margin-top: 40px;
     margin-left: 60px;
@@ -182,4 +183,27 @@ input[type="checkbox"] {
 .submitForm {
     margin: 15px;
     padding: 10px;
+}
+
+input:invalid {
+  border-color: #900;
+  background-color: #FDD;
+}
+
+input:focus:invalid { 
+  outline: none;
+}
+
+.error {
+  width: 100%;
+  padding: 0;
+  font-size: small;
+  color: white;
+  background-color: #FDD;
+  border-radius: 0 0 5px 5px;
+  box-sizing: border-box;
+}
+
+.error.active {
+  padding: 0.3em;
 }
