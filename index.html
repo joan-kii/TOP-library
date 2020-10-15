@@ -32,17 +32,17 @@
                 <div class="inputsForm">
                     <div class="bookInput">
                         <label for="bookTitle" class="label">Título</label>
-                        <input type="text" id="bookTitle" class="form" placeholder="Título" required>
+                        <input type="text" id="bookTitle" class="form" placeholder="Título" required minlength="1" maxlength="20" >
                     </div>
                     
                     <div class="bookInput">
                         <label for="authorName" class="label">Autor/a</label>
-                        <input type="text" id="authorName" class="form" placeholder="Nombre" required>
+                        <input type="text" id="authorName" class="form" placeholder="Nombre" required minlength="2" maxlength="20" pattern="[a-zA-Z/.& -]+">
                     </div>
                     
                     <div class="bookInput">
                         <label for="numPages" class="label">Páginas</label>
-                        <input type="text" id="numPages" class="form" placeholder="p. ej. 200" required>
+                        <input type="number" id="numPages" class="form" placeholder="p. ej. 200" required min="5" max="3000">
                     </div>
                     
                     <div class="bookInputCheckbox">
