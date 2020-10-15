@@ -9,24 +9,11 @@ class Book{
     };
 };
 
-function addBookToLibrary(event) {
-    const titleInput = document.getElementById('bookTitle');
-    const authorInput = document.getElementById('authorName');
-    const pagesInput = document.getElementById('numPages');     
+function addBookToLibrary(event) {   
     event.preventDefault();
-    titleInput.addEventListener('input', function (event) {
-      if (titleInput.validity.tooShort) {
-        titleInput.setCustomValidity('Introduce el título del libro');
-      } else if (titleInput.validity.tooLong) {
-        titleInput.setCustomValidity('Máximo 20 caracteres');
-      } else {
-        titleInput.setCustomValidity('');
-      }
-    });
-    /* if (bookTitle.value == '' || authorName.value == '' || numPages.value == '') {
-        alert('Por favor, introduce Título , Autor Y Número de Páginas antes de continuar'); */
+
     if (!titleInput.checkValidity() || !authorInput.checkValidity() || !pagesInput.checkValidity()) {
-        alert('Por favor, introduce Título , Autor Y Número de Páginas antes de continuar');
+      alert('Por favor, introduce Título , Autor Y Número de Páginas antes de continuar');
     } else {
         let newBook = new Book(bookTitle.value, authorName.value,
             numPages.value, checkRead.checked);
@@ -133,6 +120,18 @@ const closeForm = document.querySelector('#closePop')
 
 const newBookButton = document.querySelector('#newBookButton');
 const container = document.querySelector('#books');
+
+
+bookTitle.addEventListener('input', function (event) {
+  console.log(bookTitle.validity.tooShort);
+  if (bookTitle.validity.tooShort) {
+    bookTitle.setCustomValidity('Introduce el título del libro');
+  } else if (bookTitle.validity.tooLong) {
+    bookTitle.setCustomValidity('Máximo 20 caracteres');
+  } else {
+    bookTitle.setCustomValidity('');
+  }
+});
 
 submitBook.addEventListener("click", addBookToLibrary);
 cancelForm.addEventListener("click", function(){
