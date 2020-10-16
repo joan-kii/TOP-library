@@ -9,21 +9,24 @@ class Book{
     };
 };
 
-function addBookToLibrary(event) {   
+function addBookToLibrary(event) {
     event.preventDefault();
-    if (!titleInput.checkValidity() || !authorInput.checkValidity() || !pagesInput.checkValidity()) {
-      alert('Por favor, introduce Título , Autor Y Número de Páginas antes de continuar');
+    if (!authorName.checkValidity()) {
+      authorName.setCustomValidity('Entre 2 y 20 letras');
+      authorName.reportValidity();
+    } else if (!numPages.checkValidity()) {
+      numPages.setCustomValidity('Entre 5 y 3.000 páginas');
+      numPages.reportValidity();
     } else {
-        let newBook = new Book(bookTitle.value, authorName.value,
-            numPages.value, checkRead.checked);
-        myLibrary.push(newBook);
-        firebase.database().ref().set(myLibrary);
-        modal.style.display = 'none';
-        container.innerText = "";
-        clearForm();
-        render(myLibrary);
+      let newBook = new Book(bookTitle.value, authorName.value,
+      numPages.value, checkRead.checked);
+      myLibrary.push(newBook);
+      firebase.database().ref().set(myLibrary);
+      modal.style.display = 'none';
+      container.innerText = "";
+      clearForm();
+      render(myLibrary);
     };
-
 };
 
 function clearForm() {
@@ -121,8 +124,8 @@ const newBookButton = document.querySelector('#newBookButton');
 const container = document.querySelector('#books');
 
 
-authorName.addEventListener('input', function (event) {
-  event.preventDefault(event);
+/* authorName.addEventListener('input', function (event) {
+  event.preventDefault();
   console.log(authorName.checkValidity())
   if (!authorName.validity.valid) {
     authorName.setCustomValidity('Entre 2 y 20 letras');
@@ -130,9 +133,9 @@ authorName.addEventListener('input', function (event) {
   } else {
     authorName.setCustomValidity('');
   }
-});
+}); */
 
-numPages.addEventListener('input', function (event) {
+/* numPages.addEventListener('input', function (event) {
   event.preventDefault();
   console.log(numPages.checkValidity())
   if (!authorName.validity.valid) {
@@ -141,7 +144,7 @@ numPages.addEventListener('input', function (event) {
   } else {
     numPages.setCustomValidity('');
   }
-});
+}); */
 
 submitBook.addEventListener("click", addBookToLibrary);
 cancelForm.addEventListener("click", function(){
