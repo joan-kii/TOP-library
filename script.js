@@ -11,7 +11,6 @@ class Book{
 
 function addBookToLibrary(event) {   
     event.preventDefault();
-
     if (!titleInput.checkValidity() || !authorInput.checkValidity() || !pagesInput.checkValidity()) {
       alert('Por favor, introduce Título , Autor Y Número de Páginas antes de continuar');
     } else {
@@ -122,14 +121,25 @@ const newBookButton = document.querySelector('#newBookButton');
 const container = document.querySelector('#books');
 
 
-bookTitle.addEventListener('input', function (event) {
-  console.log(bookTitle.validity.tooShort);
-  if (bookTitle.validity.tooShort) {
-    bookTitle.setCustomValidity('Introduce el título del libro');
-  } else if (bookTitle.validity.tooLong) {
-    bookTitle.setCustomValidity('Máximo 20 caracteres');
+authorName.addEventListener('input', function (event) {
+  event.preventDefault(event);
+  console.log(authorName.checkValidity())
+  if (!authorName.validity.valid) {
+    authorName.setCustomValidity('Entre 2 y 20 letras');
+    authorName.reportValidity();
   } else {
-    bookTitle.setCustomValidity('');
+    authorName.setCustomValidity('');
+  }
+});
+
+numPages.addEventListener('input', function (event) {
+  event.preventDefault();
+  console.log(numPages.checkValidity())
+  if (!authorName.validity.valid) {
+    numPages.setCustomValidity('Entre 5 y 3.000 páginas');
+    numPages.reportValidity();
+  } else {
+    numPages.setCustomValidity('');
   }
 });
 
