@@ -123,29 +123,6 @@ const closeForm = document.querySelector('#closePop')
 const newBookButton = document.querySelector('#newBookButton');
 const container = document.querySelector('#books');
 
-
-/* authorName.addEventListener('input', function (event) {
-  event.preventDefault();
-  console.log(authorName.checkValidity())
-  if (!authorName.validity.valid) {
-    authorName.setCustomValidity('Entre 2 y 20 letras');
-    authorName.reportValidity();
-  } else {
-    authorName.setCustomValidity('');
-  }
-}); */
-
-/* numPages.addEventListener('input', function (event) {
-  event.preventDefault();
-  console.log(numPages.checkValidity())
-  if (!authorName.validity.valid) {
-    numPages.setCustomValidity('Entre 5 y 3.000 páginas');
-    numPages.reportValidity();
-  } else {
-    numPages.setCustomValidity('');
-  }
-}); */
-
 submitBook.addEventListener("click", addBookToLibrary);
 cancelForm.addEventListener("click", function(){
     modal.style.display = 'none';
