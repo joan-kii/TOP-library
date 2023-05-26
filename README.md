@@ -1,1 +1,2 @@
-Este es un ejecrcicio de The Odin Project en el que crearemos una librería personal. (No funciona correctamente en Firefox)
+## Overview
+This is an exercise for The Odin Project's JavaScript path. A web app for keep track of your books.
